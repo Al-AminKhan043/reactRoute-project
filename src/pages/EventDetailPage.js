@@ -11,7 +11,7 @@ export default function EventDetailPage(){
 
 export  async function loader({params}){
     const id=params.eventId;
-    const response= await fetch('http://localhost:8080/events/'+id);
+    const response= await fetch('https://reactroute-backend.onrender.com/events/'+id);
     if(!response.ok){
         throw new Response(JSON.stringify({message: 'count not fetch events details'}), {status:500}) 
     }else{
@@ -24,7 +24,7 @@ export  async function loader({params}){
 
 export async function action({params,request}){
     const eventId=params.eventId;
-    const response= await fetch('http://localhost:8080/events/'+eventId,{
+    const response= await fetch('https://reactroute-backend.onrender.com/events/'+eventId,{
         method:request.method
     });
     if(!response.ok){
