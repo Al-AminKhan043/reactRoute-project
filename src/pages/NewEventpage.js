@@ -23,6 +23,9 @@ export async function action({request}){
     },
     body: JSON.stringify(eventData)
    })
+   if(response.status===422){
+    return response;
+   }
    if(!response.ok){
    throw new Response(JSON.stringify({message: 'Could not save data'}), {status:500})
    }
